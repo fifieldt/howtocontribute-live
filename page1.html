@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>I want to contribute &raquo; OpenStack Open Source Cloud Computing Software</title>
+
+    <base href="https://www.openstack.org/"><!--[if lte IE 6]></base><![endif]-->
+
+    <!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans&subset=latin' rel='stylesheet' type='text/css'>
+    
+    <!-- Framework CSS -->
+    <link rel="stylesheet" href="http://www.openstack.org/themes/openstack/css/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="http://www.openstack.org/themes/openstack/css/blueprint/print.css" type="text/css" media="print">
+    
+    <!-- IE CSS -->
+    <!--[if lt IE 8]><link rel="stylesheet" href="http://www.openstack.org/themes/openstack/csss/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+    
+    <!-- OpenStack Specific CSS -->
+    
+    <link rel="stylesheet" href="http://www.openstack.org/themes/openstack/css/dropdown.css" type="text/css" media="screen, projection, print">
+
+
+  <link rel="stylesheet" type="text/css" href="https://www.openstack.org/themes/openstack/javascript/shadowbox/shadowbox.css?m=1391530504" />
+<link rel="stylesheet" type="text/css" href="https://www.openstack.org/themes/openstack/css/user-survey.css?m=1391530524" />
+<link rel="stylesheet" type="text/css" media="screen,projection" href="https://www.openstack.org/themes/openstack/css/chosen.css?m=1391530522" />
+<link rel="stylesheet" type="text/css" href="https://www.openstack.org/themes/openstack/css/jquery.autocomplete.css?m=1391530527" />
+<link rel="stylesheet" type="text/css" href="https://www.openstack.org/sapphire/css/CheckboxSetField.css?m=1391530728" />
+<link rel="stylesheet" type="text/css" href="https://www.openstack.org/themes/openstack/css/main.css?m=1391530523" />
+<script type="text/javascript">
+    function toggleMLs (ML) {
+       var MLs =  document.getElementById( 'MLs' );
+
+       MLs.style.display = 'block';
+       if (ML.checked)
+       {
+          document.getElementById('Form_MLs_' + ML.value).checked = "True";
+       }
+       else
+       {
+          document.getElementById('Form_MLs_' + ML.value).checked = "False";
+       }
+    }
+
+    function toggleGroups () {
+       var MLs =  document.getElementById( 'UserGroups' );
+
+       MLs.style.display = 'block';
+    }
+
+    function toggleLangs () {
+       var Langs =  document.getElementById( 'Languages' );
+       Langs.style.display = 'block';
+    }
+
+    function toggleProjects () {
+       var Langs =  document.getElementById( 'ProjectsUsed' );
+       Langs.style.display = 'block';
+    }
+
+</script>
+</head>
+  <body id="user-survey">
+
+  <div class="container">
+		<div id="header">
+			<div class="span-5">
+				<h1 id="logo"><a href="/">Open Stack</a></h1>
+			</div>
+			<div class="span-19 last blueLine">
+				
+				<div id="navigation" class="span-19">
+					<ul id="Menu1">
+						   		  
+  		<li><a href="/" title="Go to the Home page" class="link">Home</a></li>
+   		  
+  		<li><a href="/software/" title="Go to the Software page" class="link">Software</a></li>
+   		  
+  		<li><a href="/user-stories/" title="Go to the User Stories page" class="link">User Stories</a></li>
+   		  
+  		<li><a href="/community/" title="Go to the Community page" class="link">Community</a></li>
+   		  
+  		<li><a href="/foundation/" title="Go to the Foundation page" class="link">Foundation</a></li>
+   		  
+  		<li><a href="/profile/" title="Go to the Profile page" class="link">Profile</a></li>
+   	
+						  <li><a href="/blog/" title="Go to the OpenStack Blog">Blog</a></li>
+					  	  <li><a href="http://wiki.openstack.org/" title="Go to the OpenStack Wiki">Wiki</a></li>
+					  	  <li><a href="http://docs.openstack.org/" title="Go to OpenStack Documentation">Documentation</a></li>
+ 					</ul>
+								
+
+				</div>
+				
+			</div>
+	  	</div>
+	  	
+	<div class="span-17">
+		<p></p>
+	</div>
+	</div>
+
+
+	<!-- Page Content -->
+
+    <div class="container">
+    	
+  		<h1>I want to contribute!</h1>
+
+<div class="span-24 last">
+<p>
+   Thanks for your interest in OpenStack! This form lets you specify what you're
+   interested in, and it will send you a custom-crafted email based on your response.
+</p>
+
+<form  id="Form" action="/user-survey/Form" method="post" enctype="application/x-www-form-urlencoded">
+
+	
+	<p id="Form_error" class="message " style="display: none"></p>
+	
+	
+	<fieldset>
+		 
+		
+			<div class="span-23 last"><div class="span-10">
+		
+			<div id="Interests" class="field checkboxset "><label class="left" for="Form_Interests">What are you interested in?</label><div class="middleColumn"><ul id="Form_Interests" class="optionset checkboxsetfield">
+<li class="odd valops-ml"><input id="Form_Interests_ops-ml" name="Interests[ops-ml]" type="checkbox" value="operators"  class="checkbox" onclick="toggleMLs(this)" /> <label for="Form_Interests_ops-ml">Subscribe to the Operators <b>mailing list</b></label></li>
+<li class="even valUG"><input id="Form_Interests_UG" name="Interests[UG]" type="checkbox" value="UG"  class="checkbox" onclick="toggleGroups()"/> <label for="Form_Interests_UG">Join my local <b>user group</b></label></li>
+<li class="odd valdocs"><input id="Form_Interests_docs" name="Interests[docs]" type="checkbox" value="docs"  class="checkbox" onclick="toggleMLs(this)" /> <label for="Form_Interests_docs">Find out about <b>documentation</b></label></li>
+<li class="even vali18n"><input id="Form_Interests_i18n" name="Interests[i18n]" type="checkbox" value="i18n"  class="checkbox" /> <label for="Form_Interests_i18n" onclick="toggleLangs(this);"><b>Translate</b> OpenStack</label></li>
+<li class="odd valspecs"><input id="Form_Interests_specs" name="Interests[specs]" type="checkbox" value="specs"  class="checkbox" onclick="toggleProjects()" /> <label for="Form_Interests_specs">Review <b>design specifications</b></label></li>
+<li class="even valsecurity"><input id="Form_Interests_security" name="Interests[security]" type="checkbox" value="security"  class="checkbox" onclick="toggleMLs(this)" /> <label for="Form_Interests_security">Find out about the <b>security</b> team</label></li>
+<li class="odd valinfra"><input id="Form_Interests_infra" name="Interests[infra]" type="checkbox" value="infra"  class="checkbox" onclick="toggleMLs(this)" /> <label for="Form_Interests_infra">Find out about the <b>infrastructure</b> that powers OpenStack development</label></li>
+<li class="odd valcommitee"><input id="Form_Interests_commitee" name="Interests[commitee]" type="checkbox" value="commitee"  class="checkbox" onclick="toggleMLs(this)" /> <label for="Form_Interests_commitee"><b>Volunteer</b> with the user committee.</label></li>
+</ul>
+</div></div>
+		
+			<div id="Email" class="field text "><label class="left" for="Form_Email">Email Address</label><div class="middleColumn"><input type="text" class="text" id="Form_Email" name="Email"/></div></div>
+		
+			</div>
+<div class="span-13 last">
+
+                        <div id="UserGroups" class="field checkboxset " style="display: none;"><label class="left" for="Form_UserGroups">Which group?</label><div class="middleColumn"><ul id="Form_UserGroups" class="optionset checkboxsetfield">
+<select id="">
+<option value="None">I can't find my group</option>
+<optgroup label="North America">
+<option value="Atlanta">Atlanta</option>
+<option value="Austin">Austin</option>
+<option value="Boston">Boston</option>
+<option value="Canada">Canada</option>
+<option value="Chicago">Chicago</option>
+<option value="Cincinnati">Cincinnati</option>
+<option value="Colorado">Colorado</option>
+<option value="Columbus">Columbus</option>
+<option value="Connecticut">Connecticut</option>
+<option value="District of Columbia : Washington, DC Metro">District of Columbia : Washington, DC Metro</option>
+<option value="Florida">Florida</option>
+<option value="Indiana">Indiana</option>
+<option value="Michigan">Michigan</option>
+<option value="Minnesota">Minnesota</option>
+<option value="Los Angeles">Los Angeles</option>
+<option value="New York City">New York City</option>
+<option value="North Carolina">North Carolina</option>
+<option value="Philadelphia">Philadelphia</option>
+<option value="San Antonio, Texas">San Antonio, Texas</option>
+<option value="San Francisco Bay Area">San Francisco Bay Area</option>
+<option value="Seattle">Seattle</option>
+<option value="Utah">Utah</option>
+</optgroup>
+<optgroup label="Africa">
+<option value="Kenya">Kenya</option>
+<option value="Nigeria">Nigeria</option>
+<optgroup label="Asia / Pacific">
+<option value="Australia">Australia</option>
+<option value="Canberra">Canberra</option>
+<option value="China">China</option>
+<option value="Hong Kong">Hong Kong</option>
+<option value="India">India</option>
+<option value="Indonesia">Indonesia</option>
+<option value="Japan">Japan</option>
+<option value="Malaysia">Malaysia</option>
+<option value="New Zealand">New Zealand</option>
+<option value="Philippines">Philippines</option>
+<option value="Singapore">Singapore</option>
+<option value="South Korea">South Korea</option>
+<option value="Taiwan">Taiwan</option>
+<option value="Thailand">Thailand</option>
+<option value="Vietnam">Vietnam</option>
+</optgroup>
+<optgroup label="Latin America">
+<option value="Argentina">Argentina</option>
+<option value="Brazil">Brazil</option>
+<option value="Ecuador">Ecuador</option>
+<option value="Mexico">Mexico</option>
+<option value="Perú">Perú</option>
+<option value="Puerto Rico">Puerto Rico</option>
+<option value="Venezuela">Venezuela</option>
+</optgroup>
+<optgroup label="Europe">
+<option value="Austria">Austria</option>
+<option value="Belgium">Belgium</option>
+<option value="Bulgaria">Bulgaria</option>
+<option value="Czech Republic">Czech Republic</option>
+<option value="Denmark">Denmark</option>
+<option value="Finland">Finland</option>
+<option value="France">France</option>
+<option value="Germany">Germany</option>
+<option value="Greece">Greece</option>
+<option value="Hungary">Hungary</option>
+<option value="Netherlands">Netherlands</option>
+<option value="Nordics (Scandinavia)">Nordics (Scandinavia)</option>
+<option value="Ireland">Ireland</option>
+<option value="Italy">Italy</option>
+<option value="Poland">Poland</option>
+<option value="Russia">Russia</option>
+<option value="Serbia">Serbia</option>
+<option value="Slovenia">Slovenia</option>
+<option value="South Eastern Europe">South Eastern Europe</option>
+<option value="Spain">Spain</option>
+<option value="Sweden">Sweden</option>
+<option value="Switzerland">Switzerland</option>
+<option value="UK">UK</option>
+</optgroup>
+<optgroup label="Middle East">
+<option value="Algeria">Algeria</option>
+<option value="Cyprus">Cyprus</option>
+<option value="Egypt">Egypt</option>
+<option value="Iran">Iran</option>
+<option value="Israel">Israel</option>
+<option value="Morocco">Morocco</option>
+<option value="Turkey">Turkey</option>
+<option value="UAE">UAE</option>
+</optgroup>
+</select>
+</div>
+</div>
+                        <div id="MLs" class="field checkboxset " style="display: none;"><label class="left" for="Form_MLs">Join the mailing lists?</label> (optional)<div class="middleColumn"><ul id="Form_MLs" class="optionset checkboxsetfield">
+<div class="middleColumn"><ul id="Form_MLs" class="optionset checkboxsetfield">
+<li class="odd valannounce"><input id="Form_MLs_announce" name="MLs[announce]" type="checkbox" value="announce" class="checkbox" /> <label for="Form_MLs_announce">OpenStack Announcements</label></li>
+<li class="odd valoperators"><input id="Form_MLs_operators" name="MLs[operators]" type="checkbox" value="operators" class="checkbox" /> <label for="Form_MLs_operators">OpenStack Operators</label></li>
+<li class="even valdocs"><input id="Form_MLs_docs" name="MLs[docs]" type="checkbox" value="docs"  class="checkbox" /> <label for="Form_MLs_OpenStack-docs">OpenStack Documentation</label></li>
+<li class="odd valsecurity"><input id="Form_MLs_security" name="MLs[security]" type="checkbox" value="security"  class="checkbox" /> <label for="Form_MLs_security">OpenStack Security</label></li>
+<li class="even valOpenStack.net"><input id="Form_MLs_infra" name="MLs[infra]" type="checkbox" value="infra"  class="checkbox" /> <label for="Form_MLs_infra">OpenStack Infrastructure</label></li>
+<li class="odd vali18n"><input id="Form_MLs_i18n" name="MLs[i18n]" type="checkbox" value="i18n"  class="checkbox" /> <label for="Form_MLs_i18n">OpenStack Internationalisation</label></li>
+
+</div></div></div>
+
+                        <div id="Languages" class="field checkboxset " style="display: none"><label class="left" for="Form_Languages">Which language?</label><div class="middleColumn"><ul id="Form_Languages" class="optionset checkboxsetfield">
+<select>
+<option value="None">My language isn't listed</option>
+<option value="Albanian">Albanian</option>
+<option value="Arabic">Arabic</option>
+<option value="Basque">Basque</option>
+<option value="Bengali (India)">Bengali (India)</option>
+<option value="Bosnian">Bosnian</option>
+<option value="Bulgarian (Bulgaria)">Bulgarian (Bulgaria)</option>
+<option value="Catalan">Catalan</option>
+<option value="Chinese (China)">Chinese (China)</option>
+<option value="Chinese (Hong Kong)">Chinese (Hong Kong)</option>
+<option value="Chinese (Taiwan)">Chinese (Taiwan)</option>
+<option value="Croatian">Croatian</option>
+<option value="Czech">Czech</option>
+<option value="Danish">Danish</option>
+<option value="Dutch (Netherlands)">Dutch (Netherlands)</option>
+<option value="English (Australia)">English (Australia)</option>
+<option value="English (United Kingdom)">English (United Kingdom)</option>
+<option value="Filipino">Filipino</option>
+<option value="Finnish (Finland)">Finnish (Finland)</option>
+<option value="French">French</option>
+<option value="Galician">Galician</option>
+<option value="Georgian (Georgia)">Georgian (Georgia)</option>
+<option value="German">German</option>
+<option value="Greek">Greek</option>
+<option value="Hebrew">Hebrew</option>
+<option value="Hebrew (Israel)">Hebrew (Israel)</option>
+<option value="Hindi">Hindi</option>
+<option value="Hungarian">Hungarian</option>
+<option value="Icelandic (Iceland)">Icelandic (Iceland)</option>
+<option value="Indonesian">Indonesian</option>
+<option value="Italian">Italian</option>
+<option value="Italian (Italy)">Italian (Italy)</option>
+<option value="Japanese">Japanese</option>
+<option value="Kannada">Kannada</option>
+<option value="Khmer">Khmer</option>
+<option value="Korean (Korea)">Korean (Korea)</option>
+<option value="Malay">Malay</option>
+<option value="Malayalam (India)">Malayalam (India)</option>
+<option value="Marathi (India)">Marathi (India)</option>
+<option value="Nepali">Nepali</option>
+<option value="Norwegian Bokmål">Norwegian Bokmål</option>
+<option value="Panjabi (Punjabi) (India)">Panjabi (Punjabi) (India)</option>
+<option value="Persian">Persian</option>
+<option value="Polish (Poland)">Polish (Poland)</option>
+<option value="Portuguese">Portuguese</option>
+<option value="Portuguese (Brazil)">Portuguese (Brazil)</option>
+<option value="Romanian">Romanian</option>
+<option value="Russian">Russian</option>
+<option value="Serbian">Serbian</option>
+<option value="Slovak">Slovak</option>
+<option value="Slovenian (Slovenia)">Slovenian (Slovenia)</option>
+<option value="Spanish">Spanish</option>
+<option value="Spanish (Mexico)">Spanish (Mexico)</option>
+<option value="Swedish">Swedish</option>
+<option value="Tagalog">Tagalog</option>
+<option value="Tamil">Tamil</option>
+<option value="Telugu (India)">Telugu (India)</option>
+<option value="Turkish (Turkey)">Turkish (Turkey)</option>
+<option value="Ukrainian">Ukrainian</option>
+<option value="Urdu">Urdu</option>
+<option value="Vietnamese (Viet Nam)">Vietnamese (Viet Nam)</option>
+</select>
+</div></div>
+
+
+			<div id="ProjectsUsed" class="field checkboxset " style="display: none;"><label class="left" for="Form_ProjectsUsed">Which projects do you want to see specs for?</label><div class="middleColumn"><ul id="Form_ProjectsUsed" class="optionset checkboxsetfield">
+<li class="odd valOpenstackCompute(Nova)"><input id="Form_ProjectsUsed_OpenstackComputeNova" name="ProjectsUsed[Openstack Compute (Nova)]" type="checkbox" value="Openstack Compute (Nova)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackComputeNova">Openstack Compute (Nova)</label></li>
+<li class="even valOpenstackBlockStorage(Cinder)"><input id="Form_ProjectsUsed_OpenstackBlockStorageCinder" name="ProjectsUsed[Openstack Block Storage (Cinder)]" type="checkbox" value="Openstack Block Storage (Cinder)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackBlockStorageCinder">Openstack Block Storage (Cinder)</label></li>
+<li class="odd valOpenstackObjectStorage(Swift)"><input id="Form_ProjectsUsed_OpenstackObjectStorageSwift" name="ProjectsUsed[Openstack Object Storage (Swift)]" type="checkbox" value="Openstack Object Storage (Swift)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackObjectStorageSwift">Openstack Object Storage (Swift)</label></li>
+<li class="even valOpenstackNetwork"><input id="Form_ProjectsUsed_OpenstackNetwork" name="ProjectsUsed[Openstack Network]" type="checkbox" value="Openstack Network"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackNetwork">Openstack Network (Neutron)</label></li>
+<li class="odd valOpenstackDashboard(Horizon)"><input id="Form_ProjectsUsed_OpenstackDashboardHorizon" name="ProjectsUsed[Openstack Dashboard (Horizon)]" type="checkbox" value="Openstack Dashboard (Horizon)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackDashboardHorizon">Openstack Dashboard (Horizon)</label></li>
+<li class="even valOpenstackIdentityService(Keystone)"><input id="Form_ProjectsUsed_OpenstackIdentityServiceKeystone" name="ProjectsUsed[Openstack Identity Service (Keystone)]" type="checkbox" value="Openstack Identity Service (Keystone)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackIdentityServiceKeystone">Openstack Identity Service (Keystone)</label></li>
+<li class="odd valOpenstackImageService(Glance)"><input id="Form_ProjectsUsed_OpenstackImageServiceGlance" name="ProjectsUsed[Openstack Image Service (Glance)]" type="checkbox" value="Openstack Image Service (Glance)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackImageServiceGlance">Openstack Image Service (Glance)</label></li>
+<li class="even valHeat"><input id="Form_ProjectsUsed_Heat" name="ProjectsUsed[Heat]" type="checkbox" value="Heat"  class="checkbox" /> <label for="Form_ProjectsUsed_Heat">OpenStack Orchestration (Heat)</label></li>
+<li class="odd valCeilometer"><input id="Form_ProjectsUsed_Ceilometer" name="ProjectsUsed[Ceilometer]" type="checkbox" value="Ceilometer"  class="checkbox" /> <label for="Form_ProjectsUsed_Ceilometer">OpenStack Telemetry (Ceilometer)</label></li>
+<li class="even valOpenStackBareMetal(Ironic)"><input id="Form_ProjectsUsed_OpenStackBareMetalIronic" name="ProjectsUsed[OpenStack Bare Metal (Ironic)]" type="checkbox" value="OpenStack Bare Metal (Ironic)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenStackBareMetalIronic">OpenStack Bare Metal (Ironic)</label></li>
+<li class="odd valOpenStackDatabaseasaService(Trove)"><input id="Form_ProjectsUsed_OpenStackDatabaseasaServiceTrove" name="ProjectsUsed[OpenStack Database as a Service (Trove)]" type="checkbox" value="OpenStack Database as a Service (Trove)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenStackDatabaseasaServiceTrove">OpenStack Database as a Service (Trove)</label></li>
+</ul>
+</div></div>
+		
+			</div>
+
+
+</div>
+		
+		
+		<div class="clear"><!-- --></div>
+	</fieldset>
+
+	
+	<div class="Actions">
+		
+			<input class="action " id="Form_action_SaveSurvey" type="submit" name="action_SaveSurvey" value="  Submit  " title="  Submit  " />
+		
+	</div>
+	
+
+</form>
+
+
+</div>
+  	
+	</div>
+
+		<hr />
+	</div>
+</div>
+</body>
+</html>
