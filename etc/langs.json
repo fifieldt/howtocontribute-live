@@ -1,0 +1,333 @@
+{
+    "langs": [
+    {
+        "url" :"/projects/p/openstack/language/en/",
+        "code": "en",
+        "name": "English"
+    },
+    {
+        "url" :"/projects/p/openstack/language/ar/",
+        "code": "ar",
+        "name": "Arabic"
+    },
+    {
+        "url" :"/projects/p/openstack/language/bg_BG/",
+        "code": "bg_BG",
+        "name": "Bulgarian (Bulgaria)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/bn_IN/",
+        "code": "bn_IN",
+        "name": "Bengali (India)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/bs/",
+        "code": "bs",
+        "name": "Bosnian"
+    },
+    {
+        "url" :"/projects/p/openstack/language/ca/",
+        "code": "ca",
+        "name": "Catalan"
+    },
+    {
+        "url" :"/projects/p/openstack/language/cs/",
+        "code": "cs",
+        "name": "Czech"
+    },
+    {
+        "url" :"/projects/p/openstack/language/da/",
+        "code": "da",
+        "name": "Danish"
+    },
+    {
+        "url" :"/projects/p/openstack/language/de/",
+        "code": "de",
+        "name": "German"
+    },
+    {
+        "url" :"/projects/p/openstack/language/el/",
+        "code": "el",
+        "name": "Greek"
+    },
+    {
+        "url" :"/projects/p/openstack/language/en_AU/",
+        "code": "en_AU",
+        "name": "English (Australia)",
+        "coordinator_name": "Tom Fifield",
+        "coordinator_email": "tom@openstack.org"
+    },
+    {
+        "url" :"/projects/p/openstack/language/en_GB/",
+        "code": "en_GB",
+        "name": "English (United Kingdom)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/es/",
+        "code": "es",
+        "name": "Spanish",
+        "coordinator_name": "Marian Tort",
+        "coordinator_email": "marian.tort@gmail.com"
+
+    },
+    {
+        "url" :"/projects/p/openstack/language/es_MX/",
+        "code": "es_MX",
+        "name": "Spanish (Mexico)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/eu/",
+        "code": "eu",
+        "name": "Basque"
+    },
+    {
+        "url" :"/projects/p/openstack/language/fa/",
+        "code": "fa",
+        "name": "Persian"
+    },
+    {
+        "url" :"/projects/p/openstack/language/fi_FI/",
+        "code": "fi_FI",
+        "name": "Finnish (Finland)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/fil/",
+        "code": "fil",
+        "name": "Filipino"
+    },
+    {
+        "url" :"/projects/p/openstack/language/fr/",
+        "code": "fr",
+        "name": "French"
+    },
+    {
+        "url" :"/projects/p/openstack/language/gl/",
+        "code": "gl",
+        "name": "Galician"
+    },
+    {
+        "url" :"/projects/p/openstack/language/he/",
+        "code": "he",
+        "name": "Hebrew"
+    },
+    {
+        "url" :"/projects/p/openstack/language/he_IL/",
+        "code": "he_IL",
+        "name": "Hebrew (Israel)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/hi/",
+        "code": "hi",
+        "name": "Hindi"
+    },
+    {
+        "url" :"/projects/p/openstack/language/hr/",
+        "code": "hr",
+        "name": "Croatian"
+    },
+    {
+        "url" :"/projects/p/openstack/language/hu/",
+        "code": "hu",
+        "name": "Hungarian"
+    },
+    {
+        "url" :"/projects/p/openstack/language/id/",
+        "code": "id",
+        "name": "Indonesian"
+    },
+    {
+        "url" :"/projects/p/openstack/language/is_IS/",
+        "code": "is_IS",
+        "name": "Icelandic (Iceland)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/it/",
+        "code": "it",
+        "name": "Italian"
+    },
+    {
+        "url" :"/projects/p/openstack/language/it_IT/",
+        "code": "it_IT",
+        "name": "Italian (Italy)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/ja/",
+        "code": "ja",
+        "name": "Japanese"
+    },
+    {
+        "url" :"/projects/p/openstack/language/ka_GE/",
+        "code": "ka_GE",
+        "name": "Georgian (Georgia)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/km/",
+        "code": "km",
+        "name": "Khmer"
+    },
+    {
+        "url" :"/projects/p/openstack/language/kn/",
+        "code": "kn",
+        "name": "Kannada"
+    },
+    {
+        "url" :"/projects/p/openstack/language/ko_KR/",
+        "code": "ko_KR",
+        "name": "Korean (Korea)",
+        "coordinator_name": "SungJin Kang",
+        "coordinator_email": "gang.sungjin@gmail.com"
+    },
+    {
+        "url" :"/projects/p/openstack/language/ml_IN/",
+        "code": "ml_IN",
+        "name": "Malayalam (India)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/mr_IN/",
+        "code": "mr_IN",
+        "name": "Marathi (India)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/ms/",
+        "code": "ms",
+        "name": "Malay"
+    },
+    {
+        "url" :"/projects/p/openstack/language/nb/",
+        "code": "nb",
+        "name": "Norwegian Bokmål"
+    },
+    {
+        "url" :"/projects/p/openstack/language/ne/",
+        "code": "ne",
+        "name": "Nepali"
+    },
+    {
+        "url" :"/projects/p/openstack/language/nl_NL/",
+        "code": "nl_NL",
+        "name": "Dutch (Netherlands)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/pa_IN/",
+        "code": "pa_IN",
+        "name": "Panjabi (Punjabi) (India)",
+        "coordinator_name": "Amandeep Singh Saini",
+        "coordinator_email": "jimidar@gmail.com"
+
+    },
+    {
+        "url" :"/projects/p/openstack/language/pl_PL/",
+        "code": "pl_PL",
+        "name": "Polish (Poland)",
+        "coordinator_name": "Łukasz Jernaś",
+        "coordinator_email": "deejay1@srem.org"
+
+    },
+    {
+        "url" :"/projects/p/openstack/language/pt/",
+        "code": "pt",
+        "name": "Portuguese"
+    },
+    {
+        "url" :"/projects/p/openstack/language/pt_BR/",
+        "code": "pt_BR",
+        "name": "Portuguese (Brazil)",
+        "coordinator_name": "Marcelo Dieder",
+        "coordinator_email": "marcelodieder@gmail.com"
+
+    },
+    {
+        "url" :"/projects/p/openstack/language/ro/",
+        "code": "ro",
+        "name": "Romanian"
+    },
+    {
+        "url" :"/projects/p/openstack/language/ru/",
+        "code": "ru",
+        "name": "Russian",
+        "coordinator_name": "Ilya Alekseyev",
+        "coordinator_email": "ilya@phpcoder.ru"
+
+    },
+    {
+        "url" :"/projects/p/openstack/language/sk/",
+        "code": "sk",
+        "name": "Slovak"
+    },
+    {
+        "url" :"/projects/p/openstack/language/sl_SI/",
+        "code": "sl_SI",
+        "name": "Slovenian (Slovenia)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/sq/",
+        "code": "sq",
+        "name": "Albanian"
+    },
+    {
+        "url" :"/projects/p/openstack/language/sr/",
+        "code": "sr",
+        "name": "Serbian",
+        "coordinator_name": "Dario Ristic",
+        "coordinator_email": "office@darioristic.com"
+
+    },
+    {
+        "url" :"/projects/p/openstack/language/sv/",
+        "code": "sv",
+        "name": "Swedish"
+    },
+    {
+        "url" :"/projects/p/openstack/language/ta/",
+        "code": "ta",
+        "name": "Tamil"
+    },
+    {
+        "url" :"/projects/p/openstack/language/te_IN/",
+        "code": "te_IN",
+        "name": "Telugu (India)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/tl/",
+        "code": "tl",
+        "name": "Tagalog"
+    },
+    {
+        "url" :"/projects/p/openstack/language/tr_TR/",
+        "code": "tr_TR",
+        "name": "Turkish (Turkey)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/uk/",
+        "code": "uk",
+        "name": "Ukrainian"
+    },
+    {
+        "url" :"/projects/p/openstack/language/ur/",
+        "code": "ur",
+        "name": "Urdu"
+    },
+    {
+        "url" :"/projects/p/openstack/language/vi_VN/",
+        "code": "vi_VN",
+        "name": "Vietnamese (Viet Nam)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/zh_CN/",
+        "code": "zh_CN",
+        "name": "Chinese (China)",
+        "coordinator_name": "Ying Chun Guo",
+        "coordinator_email": "guoyingc@cn.ibm.com"
+    },
+    {
+        "url" :"/projects/p/openstack/language/zh_HK/",
+        "code": "zh_HK",
+        "name": "Chinese (Hong Kong)"
+    },
+    {
+        "url" :"/projects/p/openstack/language/zh_TW/",
+        "code": "zh_TW",
+        "name": "Chinese (Taiwan)"
+    }
+    ]
+}
