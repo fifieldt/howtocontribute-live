@@ -114,7 +114,7 @@
    interested in, and it will send you a custom-crafted email based on your response.
 </p>
 
-<form  id="Form" action="/user-survey/Form" method="post" enctype="application/x-www-form-urlencoded">
+<form  id="Form" action="http://127.0.0.1:8888/" method="post" enctype="application/x-www-form-urlencoded">
 
 	
 	<p id="Form_error" class="message " style="display: none"></p>
@@ -143,7 +143,7 @@
 <div class="span-13 last">
 
                         <div id="UserGroups" class="field checkboxset " style="display: none;"><label class="left" for="Form_UserGroups">Which group?</label><div class="middleColumn"><ul id="Form_UserGroups" class="optionset checkboxsetfield">
-<select id="">
+<select id="Form_UserGroups" name="UserGroup">
 <option value="None">I can't find my group</option>
 <optgroup label="North America">
 <option value="Atlanta">Atlanta</option>
@@ -248,7 +248,7 @@
 </div></div></div>
 
                         <div id="Languages" class="field checkboxset " style="display: none"><label class="left" for="Form_Languages">Which language?</label><div class="middleColumn"><ul id="Form_Languages" class="optionset checkboxsetfield">
-<select>
+<select id="Form_Languages" name="Language">
 <option value="None">My language isn't listed</option>
 <option value="Albanian">Albanian</option>
 <option value="Arabic">Arabic</option>

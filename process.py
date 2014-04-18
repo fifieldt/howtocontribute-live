@@ -19,7 +19,7 @@ Takes actions based on what the form captured.
 """
 
 import json
-
+import ast
 
 groups_json = open('etc/groups.json')
 langs_json = open('etc/langs.json')
@@ -35,7 +35,9 @@ community_manager_email = "tom@openstack.org"
 
 
 def get_group_details(group_name):
-    return groups['groups'][0]
+    for group in groups['groups']:
+        if group['group'] == group_name:
+            return group
 
 
 def get_lang_details(language):
@@ -43,6 +45,9 @@ def get_lang_details(language):
         if lang['name'] == language:
             return lang
 
+def get_responses():
+    responses = open('responses.txt')
+    return responses
 
 ################################
 # Content Methods              #
@@ -141,6 +146,8 @@ def specs_content(projects):
     content = """=Review Design Specifications=
 
               """
+    for project in projects:
+        content += project + "\n"
 
     return content
 
@@ -152,19 +159,54 @@ def volunteer_content():
     return content
 
 
-def main():
+################################
+# Action Methods               #
+################################
+
+def subscribe_mls(email, mls):
+    for ml in mls:
+        print "subscribing to " + ml + "@lists.openstack.org"
+
+def process_response(response):
+    response_dict = ast.literal_eval(response)
     email_subject = "Welcome to OpenStack"
     email_body = "Thanks for visiting our kiosk. We're looking forward to\
 working with you. Here are some customised action items!\n\n\t\t"
-    email_body += docs_content()
-    email_body += groups_content('Australia')
-    email_body += i18n_content('English (Australia)')
-    email_body += infra_content()
-    email_body += security_content()
-    email_body += specs_content('Nova,Swift,Glance')
-    email_body += volunteer_content()
+
+    mls = []
+    specs = []
+
+    for key, value in response_dict.iteritems():
+        if "MLs" in key:
+            mls.append(value)
+        if "ProjectsUsed" in key:
+            specs.append(value)
+        if key == "Interests[docs]":
+            email_body += docs_content()
+        if key == "UserGroup":
+            email_body += groups_content(value)
+        if key == "Language":
+            email_body += i18n_content(value)
+        if key == "Interests[infra]":
+            email_body += infra_content()
+        if key == "Interests[security]":
+            email_body += security_content()
+        if key == "Interests[committee]":
+            email_body += volunteer_content()
+
+
+    if len(mls) > 0:
+        subscribe_mls(response_dict["Email"], mls)
+    if len(specs) > 0:
+        email_body += specs_content(specs)
 
     print email_body
+
+
+def main():
+    responses = get_responses()
+    for response in responses:
+        process_response(response)
 
 
 if __name__ == "__main__":
