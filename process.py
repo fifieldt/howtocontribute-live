@@ -23,9 +23,11 @@ import ast
 
 groups_json = open('etc/groups.json')
 langs_json = open('etc/langs.json')
+projects_json = open('etc/projects.json')
 
 groups = json.load(groups_json)
 langs = json.load(langs_json)
+projects = json.load(projects_json)
 
 community_manager_email = "tom@openstack.org"
 
@@ -44,6 +46,11 @@ def get_lang_details(language):
     for lang in langs['langs']:
         if lang['name'] == language:
             return lang
+def get_project_details(project_name):
+    for project in projects['projects']:
+        if project['name'] == project_name:
+            return project
+
 
 def get_responses():
     responses = open('responses.txt')
@@ -78,8 +85,7 @@ def docs_content():
 
 
 def groups_content(group_name):
-    details = get_group_details(group_name)
-    if group_name == "None":
+    if group_name == "NotFound":
         content = """=Start a User Group=
                      It looks like we couldn't find a user group in your area.
 
@@ -93,6 +99,7 @@ def groups_content(group_name):
                      """ % community_manager_email
 
     else:
+        details = get_group_details(group_name)
         content = """=Join your User Group=
 
                      You can join %s at this URL:
@@ -130,31 +137,47 @@ def i18n_content(language):
 
 def infra_content():
     content = """=Join the infrastructure team=
-
+               Keeping a thousand developers working is hard. The OpenStack
+               infrastructure team welcomes your help at:
+               http://ci.openstack.org/project.html#contributing
               """
     return content
 
 
 def security_content():
     content = """=Join the security team=
-
+                There's never enough good security people around. You can find
+                ways to help out the OpenStack Security Group (OSS) here:
+                 https://wiki.openstack.org/wiki/Security/How_To_Contribute
               """
     return content
 
 
 def specs_content(projects):
     content = """=Review Design Specifications=
+                 OpenStack follows the principle of Open Design, meaning that
+                 all features are discussed on public websites, and you can
+                 review and contribute to them.
+
+                 One area we need help is for people running clouds to have a
+                 look at the planned features and make suggestions.
+
+                 To host the work, some projects use a code review system
+                 (Gerrit), and others use the Launchpad blueprints system. The
+                 URLs for the projects you are interested in are below:
 
               """
     for project in projects:
-        content += project + "\n"
+        content += project + ": " + get_project_details(project)["url"] + "\n"
 
     return content
 
 
 def volunteer_content():
     content = """=Volunteer with the User Committee=
-
+                The User Committe needs help in a range of areas. Please check
+                out this form:
+https://docs.google.com/a/openstack.org/forms/d/1HOwsPp44fNbWv9zgvXW8ZnCaKszg_XKu7vmLbrPFMzQ/viewform
               """
     return content
 
@@ -165,7 +188,7 @@ def volunteer_content():
 
 def subscribe_mls(email, mls):
     for ml in mls:
-        print "subscribing to " + ml + "@lists.openstack.org"
+        print "sending an email with subject=subscribe to " + ml + "-request@lists.openstack.org"
 
 def process_response(response):
     response_dict = ast.literal_eval(response)
@@ -183,9 +206,9 @@ working with you. Here are some customised action items!\n\n\t\t"
             specs.append(value)
         if key == "Interests[docs]":
             email_body += docs_content()
-        if key == "UserGroup":
+        if key == "UserGroup" and value != "None":
             email_body += groups_content(value)
-        if key == "Language":
+        if key == "Language" and value != "None":
             email_body += i18n_content(value)
         if key == "Interests[infra]":
             email_body += infra_content()

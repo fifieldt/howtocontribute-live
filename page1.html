@@ -133,7 +133,7 @@
 <li class="odd valspecs"><input id="Form_Interests_specs" name="Interests[specs]" type="checkbox" value="specs"  class="checkbox" onclick="toggleProjects()" /> <label for="Form_Interests_specs">Review <b>design specifications</b></label></li>
 <li class="even valsecurity"><input id="Form_Interests_security" name="Interests[security]" type="checkbox" value="security"  class="checkbox" onclick="toggleMLs(this)" /> <label for="Form_Interests_security">Find out about the <b>security</b> team</label></li>
 <li class="odd valinfra"><input id="Form_Interests_infra" name="Interests[infra]" type="checkbox" value="infra"  class="checkbox" onclick="toggleMLs(this)" /> <label for="Form_Interests_infra">Find out about the <b>infrastructure</b> that powers OpenStack development</label></li>
-<li class="odd valcommitee"><input id="Form_Interests_commitee" name="Interests[commitee]" type="checkbox" value="commitee"  class="checkbox" onclick="toggleMLs(this)" /> <label for="Form_Interests_commitee"><b>Volunteer</b> with the user committee.</label></li>
+<li class="odd valcommittee"><input id="Form_Interests_committee" name="Interests[committee]" type="checkbox" value="committee"  class="checkbox" onclick="toggleMLs(this)" /> <label for="Form_Interests_committee"><b>Volunteer</b> with the user committee.</label></li>
 </ul>
 </div></div>
 		
@@ -144,7 +144,8 @@
 
                         <div id="UserGroups" class="field checkboxset " style="display: none;"><label class="left" for="Form_UserGroups">Which group?</label><div class="middleColumn"><ul id="Form_UserGroups" class="optionset checkboxsetfield">
 <select id="Form_UserGroups" name="UserGroup">
-<option value="None">I can't find my group</option>
+<option value="None"></option>
+<option value="NotFound">I can't find my group</option>
 <optgroup label="North America">
 <option value="Atlanta">Atlanta</option>
 <option value="Austin">Austin</option>
@@ -249,7 +250,8 @@
 
                         <div id="Languages" class="field checkboxset " style="display: none"><label class="left" for="Form_Languages">Which language?</label><div class="middleColumn"><ul id="Form_Languages" class="optionset checkboxsetfield">
 <select id="Form_Languages" name="Language">
-<option value="None">My language isn't listed</option>
+<option value="None"></option>
+<option value="NotFound">My language isn't listed</option>
 <option value="Albanian">Albanian</option>
 <option value="Arabic">Arabic</option>
 <option value="Basque">Basque</option>
@@ -318,12 +320,12 @@
 <li class="odd valOpenstackCompute(Nova)"><input id="Form_ProjectsUsed_OpenstackComputeNova" name="ProjectsUsed[Openstack Compute (Nova)]" type="checkbox" value="Openstack Compute (Nova)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackComputeNova">Openstack Compute (Nova)</label></li>
 <li class="even valOpenstackBlockStorage(Cinder)"><input id="Form_ProjectsUsed_OpenstackBlockStorageCinder" name="ProjectsUsed[Openstack Block Storage (Cinder)]" type="checkbox" value="Openstack Block Storage (Cinder)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackBlockStorageCinder">Openstack Block Storage (Cinder)</label></li>
 <li class="odd valOpenstackObjectStorage(Swift)"><input id="Form_ProjectsUsed_OpenstackObjectStorageSwift" name="ProjectsUsed[Openstack Object Storage (Swift)]" type="checkbox" value="Openstack Object Storage (Swift)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackObjectStorageSwift">Openstack Object Storage (Swift)</label></li>
-<li class="even valOpenstackNetwork"><input id="Form_ProjectsUsed_OpenstackNetwork" name="ProjectsUsed[Openstack Network]" type="checkbox" value="Openstack Network"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackNetwork">Openstack Network (Neutron)</label></li>
+<li class="even valOpenstackNetwork"><input id="Form_ProjectsUsed_OpenstackNetwork" name="ProjectsUsed[Openstack Network]" type="checkbox" value="Openstack Network (Neutron)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackNetwork">Openstack Network (Neutron)</label></li>
 <li class="odd valOpenstackDashboard(Horizon)"><input id="Form_ProjectsUsed_OpenstackDashboardHorizon" name="ProjectsUsed[Openstack Dashboard (Horizon)]" type="checkbox" value="Openstack Dashboard (Horizon)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackDashboardHorizon">Openstack Dashboard (Horizon)</label></li>
 <li class="even valOpenstackIdentityService(Keystone)"><input id="Form_ProjectsUsed_OpenstackIdentityServiceKeystone" name="ProjectsUsed[Openstack Identity Service (Keystone)]" type="checkbox" value="Openstack Identity Service (Keystone)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackIdentityServiceKeystone">Openstack Identity Service (Keystone)</label></li>
 <li class="odd valOpenstackImageService(Glance)"><input id="Form_ProjectsUsed_OpenstackImageServiceGlance" name="ProjectsUsed[Openstack Image Service (Glance)]" type="checkbox" value="Openstack Image Service (Glance)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenstackImageServiceGlance">Openstack Image Service (Glance)</label></li>
-<li class="even valHeat"><input id="Form_ProjectsUsed_Heat" name="ProjectsUsed[Heat]" type="checkbox" value="Heat"  class="checkbox" /> <label for="Form_ProjectsUsed_Heat">OpenStack Orchestration (Heat)</label></li>
-<li class="odd valCeilometer"><input id="Form_ProjectsUsed_Ceilometer" name="ProjectsUsed[Ceilometer]" type="checkbox" value="Ceilometer"  class="checkbox" /> <label for="Form_ProjectsUsed_Ceilometer">OpenStack Telemetry (Ceilometer)</label></li>
+<li class="even valHeat"><input id="Form_ProjectsUsed_Heat" name="ProjectsUsed[Heat]" type="checkbox" value="OpenStack Orchestration (Heat)"  class="checkbox" /> <label for="Form_ProjectsUsed_Heat">OpenStack Orchestration (Heat)</label></li>
+<li class="odd valCeilometer"><input id="Form_ProjectsUsed_Ceilometer" name="ProjectsUsed[Ceilometer]" type="checkbox" value="OpenStack Telemetry (Ceilometer)"  class="checkbox" /> <label for="Form_ProjectsUsed_Ceilometer">OpenStack Telemetry (Ceilometer)</label></li>
 <li class="even valOpenStackBareMetal(Ironic)"><input id="Form_ProjectsUsed_OpenStackBareMetalIronic" name="ProjectsUsed[OpenStack Bare Metal (Ironic)]" type="checkbox" value="OpenStack Bare Metal (Ironic)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenStackBareMetalIronic">OpenStack Bare Metal (Ironic)</label></li>
 <li class="odd valOpenStackDatabaseasaService(Trove)"><input id="Form_ProjectsUsed_OpenStackDatabaseasaServiceTrove" name="ProjectsUsed[OpenStack Database as a Service (Trove)]" type="checkbox" value="OpenStack Database as a Service (Trove)"  class="checkbox" /> <label for="Form_ProjectsUsed_OpenStackDatabaseasaServiceTrove">OpenStack Database as a Service (Trove)</label></li>
 </ul>

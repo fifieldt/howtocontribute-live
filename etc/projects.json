@@ -1,0 +1,48 @@
+{
+    "projects": [
+    {
+        "url" :"https://review.openstack.org/#/q/status:open+project:openstack/nova-specs,n,z",
+        "name": "Openstack Compute (Nova)"
+    },
+    {
+        "url" :"https://blueprints.launchpad.net/cinder",
+        "name": "Openstack Block Storage (Cinder)"
+    },
+    {
+        "url" :"https://blueprints.launchpad.net/swift",
+        "name": "Openstack Object Storage (Swift)"
+    },
+    {
+        "url" :"https://review.openstack.org/#/q/status:open+project:openstack/neutron-specs,n,z",
+        "name": "Openstack Network (Neutron)"
+    },
+    {
+        "url" :"https://blueprints.launchpad.net/horizon",
+        "name": "Openstack Dashboard (Horizon)"
+    },
+    {
+        "url" :"https://blueprints.launchpad.net/keystone",
+        "name": "Openstack Identity Service (Keystone)"
+    },
+    {
+        "url" :"https://blueprints.launchpad.net/glance",
+        "name": "Openstack Image Service (Glance)"
+    },
+    {
+        "url" :"https://blueprints.launchpad.net/heat",
+        "name": "OpenStack Orchestration (Heat)"
+    },
+    {
+        "url" :"https://blueprints.launchpad.net/ceilometer",
+        "name": "OpenStack Telemetry (Ceilometer)"
+    },
+    {
+        "url" :"https://blueprints.launchpad.net/ironic",
+        "name": "OpenStack Bare Metal (Ironic)"
+    },
+    {
+        "url" :"https://blueprints.launchpad.net/trove",
+        "name": "OpenStack Database as a Service (Trove)"
+    }
+    ]
+}
