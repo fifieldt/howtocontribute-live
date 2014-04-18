@@ -21,6 +21,11 @@ Takes actions based on what the form captured.
 import json
 import ast
 
+SMTP_SERVER = 'smtp.gmail.com'
+SMTP_PORT = 587
+sender_email = "tom@openstack.org"
+
+
 groups_json = open('etc/groups.json')
 langs_json = open('etc/langs.json')
 projects_json = open('etc/projects.json')
@@ -29,7 +34,6 @@ groups = json.load(groups_json)
 langs = json.load(langs_json)
 projects = json.load(projects_json)
 
-community_manager_email = "tom@openstack.org"
 
 ################################
 # Data Methods                 #
@@ -70,14 +74,22 @@ def docs_content():
               contributors from people like yourself who are using the
               software.
 
-              A good place to get started is ...
+              A good place to get started is the install guides at
+              http://docs.openstack.org/.
 
-              We also have ....
+              We also have the Operations Guide and Security Guide at:
+              http://docs.openstack.org/ops
+              http://docs.openstack.orgs/sec
 
               If you find any problems with the docs, just click the red
               bug in the corner and type something up about what's wrong.
 
-              It's actually pretty easy to patch things up and ....
+              It's actually pretty easy to patch things up. Check out this
+              guide for first timers:
+              https://wiki.openstack.org/wiki/Documentation/HowTo/FirstTimers
+
+              I you have any issues, join the #OpenStack-doc IRC channel
+              https://wiki.openstack.org/wiki/IRC
 
               """
 
@@ -102,7 +114,7 @@ def groups_content(group_name):
         details = get_group_details(group_name)
         content = """=Join your User Group=
 
-                     You can join %s at this URL:
+                     You can join the %s group at this URL:
 
                      If you run into any issues, you can contact
 
