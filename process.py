@@ -18,8 +18,10 @@
 Takes actions based on what the form captured.
 """
 
-import json
+import argparse
 import ast
+import json
+import logging
 import smtplib
 
 SMTP_SERVER = 'smtp.gmail.com'
@@ -27,6 +29,7 @@ SMTP_PORT = 587
 sender_email = "tom@openstack.org"
 sender_password = ""
 
+logger = logging.getLogger('howtocontribute-live')
 
 groups_json = open('etc/groups.json')
 langs_json = open('etc/langs.json')
@@ -116,16 +119,33 @@ def groups_content(group_name):
 
     else:
         details = get_group_details(group_name)
+        if details["meetup_url"] != "":
+            url = details["meetup_url"]
+        elif details["ml_url"] != "":
+            url = details["ml_url"]
+        elif details["facebook_url"] != "":
+            url = details["facebook_url"]
+        elif details["gplus_url"] != "":
+            url = details["gplus_url"]
+        elif details["linkedin_url"] != "":
+            url = details["linkedin_url"]
+        elif details["website_url"] != "":
+            url = details["website_url"]
+        elif details["microblog_url"] != "":
+            url = details["microblog_url"]
+
         content = """=Join your User Group=
 
                      You can join the %s group at this URL:
+
+                     %s
 
                      If you run into any issues, you can contact
 
                      %s
                      %s
 
-                     """ % (group_name, details["coordinators"],
+                     """ % (group_name, url, details["coordinators"],
                             details["coordinator_emails"])
 
     return content
@@ -217,30 +237,31 @@ https://docs.google.com/a/openstack.org/forms/d/1HOwsPp44fNbWv9zgvXW8ZnCaKszg_XK
 # Action Methods               #
 ################################
 
-def subscribe_mls(email, mls):
+def subscribe_mls(email, mls, dryrun):
     for ml in mls:
-        print "sending an email with subject=subscribe to " + ml + "-request@lists.openstack.org"
-        if ml not in ["announce", "docs", "infra", "operators" "security"]:
-            print "Tried to sign up to a non-existent list. Failed safe."
+        logger.debug("sending an email with subject=subscribe to " + ml + "-request@lists.openstack.org")
+        if ml not in ["announce", "docs", "i18n", "infra", "operators" "security"]:
+            logger.error("Tried to sign up to a non-existent list. Failing.")
             break
-        headers = ["from: " + email,
-                   "subject: subscribe",
-                   "to: " + ml + "-request@lists.openstack.org",
-                   "mime-version: 1.0",
-                   "content-type: text/plain"]
-        headers = "\r\n".join(headers)
-        s = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
-        if SMTP_PORT == 587:
-            s.starttls()
-            s.login(sender_email, sender_password)
-        s.sendmail(email, ml + "-request@lists.openstack.org", headers)
+        if not dryun:
+            headers = ["from: " + email,
+                       "subject: subscribe",
+                       "to: " + ml + "-request@lists.openstack.org",
+                       "mime-version: 1.0",
+                       "content-type: text/plain"]
+            headers = "\r\n".join(headers)
+            s = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+            if SMTP_PORT == 587:
+                s.starttls()
+                s.login(sender_email, sender_password)
+            s.sendmail(email, ml + "-request@lists.openstack.org", headers)
 
 
-def process_response(response):
+def process_response(response, dryrun):
     response_dict = ast.literal_eval(response)
     email_subject = "Welcome to OpenStack"
     email_body = "Thanks for visiting our kiosk. We're looking forward to\
-working with you. Here are some customised action items!\n\n\t\t"
+ working with you. Here are some customised action items!\n\n\t\t"
 
     mls = []
     specs = []
@@ -264,30 +285,45 @@ working with you. Here are some customised action items!\n\n\t\t"
             email_body += volunteer_content()
 
     if len(mls) > 0:
-        subscribe_mls(response_dict["Email"], mls)
+        subscribe_mls(response_dict["Email"], mls, dryrun)
     if len(specs) > 0:
         email_body += specs_content(specs)
 
-    print email_body
-    print response_dict["Email"]
-    s = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
-    if SMTP_PORT == 587:
-        s.starttls()
-        s.login(sender_email, sender_password)
-    headers = ["from: " + sender_email,
-               "subject: " + email_subject,
-               "to: " + response_dict["Email"],
-               "mime-version: 1.0",
-               "content-type: text/plain"]
-    headers = "\r\n".join(headers)
-    s.sendmail(sender_email, response_dict["Email"], headers + "\r\n\r\n" + email_body)
-    s.quit()
+    logger.debug(email_body)
+    logger.debug(response_dict["Email"])
+
+    if not dryrun:
+        s = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+        if SMTP_PORT == 587:
+            s.starttls()
+            s.login(sender_email, sender_password)
+        headers = ["from: " + sender_email,
+                   "subject: " + email_subject,
+                   "to: " + response_dict["Email"],
+                   "mime-version: 1.0",
+                   "content-type: text/plain"]
+        headers = "\r\n".join(headers)
+        s.sendmail(sender_email, response_dict["Email"], headers + "\r\n\r\n" + email_body)
+        s.quit()
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--dryrun', dest='dryrun', action='store_true')
+    parser.add_argument('--no-dryrun', dest='dryrun', action='store_false')
+    parser.add_argument('-v', '--verbose', dest='verbose', action='store_true',
+                        help='verbose output')
+    parser.set_defaults(dryrun=False)
+    args = parser.parse_args()
+
+    if args.verbose:
+        logging.basicConfig(level=logging.DEBUG)
+    else:
+        logging.basicConfig(level=logging.ERROR)
+
     responses = get_responses()
     for response in responses:
-        process_response(response)
+        process_response(response, args.dryrun)
 
 
 if __name__ == "__main__":
