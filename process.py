@@ -20,10 +20,12 @@ Takes actions based on what the form captured.
 
 import json
 import ast
+import smtplib
 
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
 sender_email = "tom@openstack.org"
+sender_password = ""
 
 
 groups_json = open('etc/groups.json')
@@ -108,7 +110,7 @@ def groups_content(group_name):
                      https://wiki.openstack.org/wiki/OpenStackUserGroups/HowTo
                      and let %s know.
 
-                     """ % community_manager_email
+                     """ % sender_email
 
     else:
         details = get_group_details(group_name)
@@ -151,7 +153,7 @@ def infra_content():
     content = """=Join the infrastructure team=
                Keeping a thousand developers working is hard. The OpenStack
                infrastructure team welcomes your help at:
-               http://ci.openstack.org/project.html#contributing
+               http://ci.openstack.org/project.html#contributing\n\n
               """
     return content
 
@@ -160,7 +162,7 @@ def security_content():
     content = """=Join the security team=
                 There's never enough good security people around. You can find
                 ways to help out the OpenStack Security Group (OSS) here:
-                 https://wiki.openstack.org/wiki/Security/How_To_Contribute
+                 https://wiki.openstack.org/wiki/Security/How_To_Contribute\n\n
               """
     return content
 
@@ -189,7 +191,7 @@ def volunteer_content():
     content = """=Volunteer with the User Committee=
                 The User Committe needs help in a range of areas. Please check
                 out this form:
-https://docs.google.com/a/openstack.org/forms/d/1HOwsPp44fNbWv9zgvXW8ZnCaKszg_XKu7vmLbrPFMzQ/viewform
+https://docs.google.com/a/openstack.org/forms/d/1HOwsPp44fNbWv9zgvXW8ZnCaKszg_XKu7vmLbrPFMzQ/viewform\n\n
               """
     return content
 
@@ -201,6 +203,20 @@ https://docs.google.com/a/openstack.org/forms/d/1HOwsPp44fNbWv9zgvXW8ZnCaKszg_XK
 def subscribe_mls(email, mls):
     for ml in mls:
         print "sending an email with subject=subscribe to " + ml + "-request@lists.openstack.org"
+        if ml not in ["announce", "docs", "infra", "operators" "security"]:
+            print "Tried to sign up to a non-existent list. Failed safe."
+            break
+        headers = ["from: " + email,
+                   "subject: subscribe",
+                   "to: " + ml + "-request@lists.openstack.org",
+                   "mime-version: 1.0",
+                   "content-type: text/plain"]
+        headers = "\r\n".join(headers)
+        s = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+        if SMTP_PORT == 587:
+            s.starttls()
+            s.login(sender_email, sender_password)
+        s.sendmail(email, ml + "-request@lists.openstack.org", headers)
 
 def process_response(response):
     response_dict = ast.literal_eval(response)
@@ -229,13 +245,25 @@ working with you. Here are some customised action items!\n\n\t\t"
         if key == "Interests[committee]":
             email_body += volunteer_content()
 
-
     if len(mls) > 0:
         subscribe_mls(response_dict["Email"], mls)
     if len(specs) > 0:
         email_body += specs_content(specs)
 
     print email_body
+    print response_dict["Email"]
+    s = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+    if SMTP_PORT == 587:
+        s.starttls()
+        s.login(sender_email, sender_password)
+    headers = ["from: " + sender_email,
+               "subject: " + email_subject,
+               "to: " + response_dict["Email"],
+               "mime-version: 1.0",
+               "content-type: text/plain"]
+    headers = "\r\n".join(headers)
+    s.sendmail(sender_email, response_dict["Email"], headers + "\r\n\r\n" + email_body)
+    s.quit()
 
 
 def main():
