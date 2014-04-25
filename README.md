@@ -9,3 +9,10 @@ python-webpy
 Recommended server environment:
 apache2
 libapache2-mod-wsgi
+
+
+To run a test server using python's inbuilt ability:
+
+$ python store.py 8888
+
+
