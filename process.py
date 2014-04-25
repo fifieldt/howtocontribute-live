@@ -52,6 +52,8 @@ def get_lang_details(language):
     for lang in langs['langs']:
         if lang['name'] == language:
             return lang
+
+
 def get_project_details(project_name):
     for project in projects['projects']:
         if project['name'] == project_name:
@@ -130,25 +132,36 @@ def groups_content(group_name):
 
 
 def i18n_content(language):
-    details = get_lang_details(language)
-    if "coordinator_email" not in details.keys():
-        details["coordinator_email"] = """Unknown. Please contact Daisy at
-                                        guoyingc@cn.ibm.com for more
-                                        assistance."""
-    content = """=Translate OpenStack=
+    if language == "NotFound":
+        content = """=Translate OpenStack=
+                     It looks like we don't have your language in the list
+                     yet.
 
-                 Thanks for your interest in translating into %s.
+                    Are you interested in getting a few friends together and
+                    starting a translation team?
 
-                 Beginning to translate is simple - instructions at:
-                 https://wiki.openstack.org/wiki/Documentation/Translation#Contribute_as_a_translator
+                    Have a look https://wiki.openstack.org/wiki/I18nTeam/CreateLocalTeam
+                    and let guoyingc@cn.ibm.com know!
+                  """
+    else:
+        details = get_lang_details(language)
+        if "coordinator_email" not in details.keys():
+            details["coordinator_email"] = """Unknown. Please contact Daisy at
+                                            guoyingc@cn.ibm.com for more
+                                            assistance."""
+        content = """=Translate OpenStack=
 
-                 Your language coordinator is %s.
+                     Thanks for your interest in translating into %s.
 
-                 You may also want to join the OpenStack-i18N mailing list at
-                 http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-i18n
+                     Beginning to translate is simple - instructions at:
+                     https://wiki.openstack.org/wiki/Documentation/Translation#Contribute_as_a_translator
 
+                     Your language coordinator is %s.
 
-                 """ % (language, details["coordinator_email"])
+                     You may also want to join the OpenStack-i18N mailing list at
+                     http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-i18n
+
+                     """ % (language, details["coordinator_email"])
 
     return content
 
@@ -221,6 +234,7 @@ def subscribe_mls(email, mls):
             s.starttls()
             s.login(sender_email, sender_password)
         s.sendmail(email, ml + "-request@lists.openstack.org", headers)
+
 
 def process_response(response):
     response_dict = ast.literal_eval(response)
