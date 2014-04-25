@@ -131,6 +131,10 @@ def groups_content(group_name):
 
 def i18n_content(language):
     details = get_lang_details(language)
+    if "coordinator_email" not in details.keys():
+        details["coordinator_email"] = """Unknown. Please contact Daisy at
+                                        guoyingc@cn.ibm.com for more
+                                        assistance."""
     content = """=Translate OpenStack=
 
                  Thanks for your interest in translating into %s.
