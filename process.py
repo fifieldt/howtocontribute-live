@@ -73,48 +73,44 @@ def get_responses():
 
 
 def docs_content():
-    content = """=Find out about Docs=
+    content = """
+*Find out about Docs*
 
-              Thanks for asking about OpenStack documentation.
+Thanks for asking about OpenStack documentation.
 
-              We have a range of documentation to read, and welcome
-              contributors from people like yourself who are using the
-              software.
+We have a range of documentation to read, and welcome contributors from people
+ like yourself who are using the software.
 
-              A good place to get started is the install guides at
-              http://docs.openstack.org/.
+A good place to get started is the install guides at:
+http://docs.openstack.org/.
 
-              We also have the Operations Guide and Security Guide at:
-              http://docs.openstack.org/ops
-              http://docs.openstack.orgs/sec
+We also have the Operations Guide and Security Guide at:
+http://docs.openstack.org/ops
+http://docs.openstack.orgs/sec
 
-              If you find any problems with the docs, just click the red
-              bug in the corner and type something up about what's wrong.
+If you find any problems with the docs, just click the red bug in the corner and
+type something up about what's wrong.
 
-              It's actually pretty easy to patch things up. Check out this
-              guide for first timers:
-              https://wiki.openstack.org/wiki/Documentation/HowTo/FirstTimers
+It's actually pretty easy to patch things up. Check out this guide:
+https://wiki.openstack.org/wiki/Documentation/HowTo/FirstTimers
 
-              I you have any issues, join the #OpenStack-doc IRC channel
-              https://wiki.openstack.org/wiki/IRC
-
-              """
+I you have any issues, join the #OpenStack-doc IRC channel
+https://wiki.openstack.org/wiki/IRC\n\n"""
 
     return content
 
 
 def groups_content(group_name):
     if group_name == "NotFound":
-        content = """=Start a User Group=
-                     It looks like we couldn't find a user group in your area.
+        content = """
+*Start a User Group*
+It looks like we couldn't find a user group in your area.
 
-                     Are you interested in getting  a few friends together and
-                     starting one?
+Are you interested in getting a few friends together and starting one?
 
-                     Have a quick read of
-                     https://wiki.openstack.org/wiki/OpenStackUserGroups/HowTo
-                     and let %s know.
-
+Have a quick read of
+https://wiki.openstack.org/wiki/OpenStackUserGroups/HowTo
+and let %s know.
                      """ % sender_email
 
     else:
@@ -134,16 +130,17 @@ def groups_content(group_name):
         elif details["microblog_url"] != "":
             url = details["microblog_url"]
 
-        content = """=Join your User Group=
+        content = """
+*Join your User Group*
 
-                     You can join the %s group at this URL:
+You can join the %s group at this URL:
 
-                     %s
+%s
 
-                     If you run into any issues, you can contact
+If you run into any issues, you can contact
 
-                     %s
-                     %s
+%s
+%s
 
                      """ % (group_name, url, details["coordinators"],
                             details["coordinator_emails"])
@@ -153,15 +150,14 @@ def groups_content(group_name):
 
 def i18n_content(language):
     if language == "NotFound":
-        content = """=Translate OpenStack=
-                     It looks like we don't have your language in the list
-                     yet.
+        content = """
+*Translate OpenStack*
+It looks like we don't have your language in the list yet.
 
-                    Are you interested in getting a few friends together and
-                    starting a translation team?
+Are you interested in getting people together and starting a translation team?
 
-                    Have a look https://wiki.openstack.org/wiki/I18nTeam/CreateLocalTeam
-                    and let guoyingc@cn.ibm.com know!
+Have a look https://wiki.openstack.org/wiki/I18nTeam/CreateLocalTeam
+and let guoyingc@cn.ibm.com know!
                   """
     else:
         details = get_lang_details(language)
@@ -169,17 +165,18 @@ def i18n_content(language):
             details["coordinator_email"] = """Unknown. Please contact Daisy at
                                             guoyingc@cn.ibm.com for more
                                             assistance."""
-        content = """=Translate OpenStack=
+        content = """
+*Translate OpenStack*
 
-                     Thanks for your interest in translating into %s.
+Thanks for your interest in translating into %s.
 
-                     Beginning to translate is simple - instructions at:
-                     https://wiki.openstack.org/wiki/Documentation/Translation#Contribute_as_a_translator
+Beginning to translate is simple - instructions at:
+https://wiki.openstack.org/wiki/Documentation/Translation#Contribute_as_a_translator
 
-                     Your language coordinator is %s.
+Your language coordinator is %s.
 
-                     You may also want to join the OpenStack-i18N mailing list at
-                     http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-i18n
+You may also want to join the OpenStack-i18N mailing list at
+http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-i18n
 
                      """ % (language, details["coordinator_email"])
 
@@ -187,37 +184,39 @@ def i18n_content(language):
 
 
 def infra_content():
-    content = """=Join the infrastructure team=
-               Keeping a thousand developers working is hard. The OpenStack
-               infrastructure team welcomes your help at:
-               http://ci.openstack.org/project.html#contributing\n\n
-              """
+    content = """
+*Join the infrastructure team*
+Keeping a thousand developers working is hard.
+The OpenStack infrastructure team welcomes your help at:
+http://ci.openstack.org/project.html#contributing\n\n
+"""
     return content
 
 
 def security_content():
-    content = """=Join the security team=
-                There's never enough good security people around. You can find
-                ways to help out the OpenStack Security Group (OSS) here:
-                 https://wiki.openstack.org/wiki/Security/How_To_Contribute\n\n
+    content = """
+*Join the security team*
+You can never have too many good security people around.
+You can find ways to help out the OpenStack Security Group (OSS) here:
+https://wiki.openstack.org/wiki/Security/How_To_Contribute\n\n
               """
     return content
 
 
 def specs_content(projects):
-    content = """=Review Design Specifications=
-                 OpenStack follows the principle of Open Design, meaning that
-                 all features are discussed on public websites, and you can
-                 review and contribute to them.
+    content = """
+*Review Design Specifications*
+OpenStack follows the principle of Open Design, meaning that all features are
+discussed on public websites, and you can review and contribute to them.
 
-                 One area we need help is for people running clouds to have a
-                 look at the planned features and make suggestions.
+One area we need help is for people running clouds to have a look at the
+planned features and make suggestions.
 
-                 To host the work, some projects use a code review system
-                 (Gerrit), and others use the Launchpad blueprints system. The
-                 URLs for the projects you are interested in are below:
+To host the work, some projects use a code review system (Gerrit), and others
+use the Launchpad blueprints system. The URLs for the projects you are
+interested in are below:
 
-              """
+"""
     for project in projects:
         content += project + ": " + get_project_details(project)["url"] + "\n"
 
@@ -225,9 +224,9 @@ def specs_content(projects):
 
 
 def volunteer_content():
-    content = """=Volunteer with the User Committee=
-                The User Committe needs help in a range of areas. Please check
-                out this form:
+    content = """
+*Volunteer with the User Committee*
+The User Committe needs help in a range of areas. Please check out this form:
 https://docs.google.com/a/openstack.org/forms/d/1HOwsPp44fNbWv9zgvXW8ZnCaKszg_XKu7vmLbrPFMzQ/viewform\n\n
               """
     return content
