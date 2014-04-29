@@ -15,4 +15,4 @@ To run a test server using python's inbuilt ability:
 
 $ python store.py 8888
 
-
+then open page1.html in your browser and submit the form.

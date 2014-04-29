@@ -26,6 +26,8 @@ import smtplib
 
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
+LIST_SERVER = 'lists.openstack.org'
+LIST_PORT = 25
 sender_email = "tom@openstack.org"
 sender_password = ""
 
@@ -245,15 +247,12 @@ def subscribe_mls(email, mls, dryrun):
         if not dryun:
             headers = ["from: " + email,
                        "subject: subscribe",
-                       "to: " + ml + "-request@lists.openstack.org",
+                       "to: openstack-" + ml + "-request@lists.openstack.org",
                        "mime-version: 1.0",
                        "content-type: text/plain"]
             headers = "\r\n".join(headers)
-            s = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
-            if SMTP_PORT == 587:
-                s.starttls()
-                s.login(sender_email, sender_password)
-            s.sendmail(email, ml + "-request@lists.openstack.org", headers)
+            s = smtplib.SMTP(LIST_SERVER, LIST_PORT)
+            s.sendmail(email, "openstack-" + ml + "-request@lists.openstack.org", headers)
 
 
 def process_response(response, dryrun):
