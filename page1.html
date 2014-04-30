@@ -49,9 +49,18 @@
        MLs.style.display = 'block';
     }
 
-    function toggleLangs () {
+    function toggleLangs (i18nInterest) {
        var Langs =  document.getElementById( 'Languages' );
        Langs.style.display = 'block';
+       MLs.style.display = 'block';
+       if (i18nInterest.checked)
+       {
+          document.getElementById('Form_MLs_i18n').checked = "True";
+       }
+       else
+       {
+          document.getElementById('Form_MLs_i18n').checked = "False";
+       }
     }
 
     function toggleProjects () {
