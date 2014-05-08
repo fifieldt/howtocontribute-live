@@ -224,6 +224,19 @@ interested in are below:
 
     return content
 
+def superuser_content():
+    content = """
+*Write for SuperUser*
+OpenStack Superuser is a publication with feature stories, case studies, tips
+and videos for OpenStack cloud architects and administrators. We want your
+ideas, feedback and tips. Send a post on the mailing list to get started:
+
+http://lists.openstack.org/cgi-bin/mailman/listinfo/superuser\n\n
+              """
+    return content
+
+
+
 
 def volunteer_content():
     content = """
@@ -240,11 +253,11 @@ https://docs.google.com/a/openstack.org/forms/d/1HOwsPp44fNbWv9zgvXW8ZnCaKszg_XK
 
 def subscribe_mls(email, mls, dryrun):
     for ml in mls:
-        logger.debug("sending an email with subject=subscribe to " + ml + "-request@lists.openstack.org")
-        if ml not in ["announce", "docs", "i18n", "infra", "operators" "security"]:
-            logger.error("Tried to sign up to a non-existent list. Failing.")
+        logger.debug("sending an email with subject=subscribe to openstack-" + ml + "-request@lists.openstack.org")
+        if ml not in ["announce", "docs", "i18n", "infra", "operators", "security"]:
+            logger.error("Tried to sign up to a non-existent list %s. Failing." % ml)
             break
-        if not dryun:
+        if not dryrun:
             headers = ["from: " + email,
                        "subject: subscribe",
                        "to: openstack-" + ml + "-request@lists.openstack.org",
@@ -279,6 +292,8 @@ def process_response(response, dryrun):
             email_body += infra_content()
         if key == "Interests[security]":
             email_body += security_content()
+        if key == "Interests[superuser]":
+            email_body += superuser_content()
         if key == "Interests[committee]":
             email_body += volunteer_content()
 
