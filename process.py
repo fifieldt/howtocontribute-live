@@ -228,10 +228,12 @@ interested in are below:
 
 def superuser_content():
     content = """
-*Write for SuperUser*
+*Contribute to Superuser Magazine*
 OpenStack Superuser is a publication with feature stories, case studies, tips
 and videos for OpenStack cloud architects and administrators. We want your
-ideas, feedback and tips. Send a post on the mailing list to get started:
+ideas and feedback. Please check out the publication at
+http://superuser.openstack.org and send a post to our editorial team mailing
+list:
 
 http://lists.openstack.org/cgi-bin/mailman/listinfo/superuser\n\n
               """
