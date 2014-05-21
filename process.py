@@ -103,6 +103,8 @@ https://wiki.openstack.org/wiki/IRC\n\n"""
 
 
 def groups_content(group_name):
+    url = "Something went wrong. We'll email again next week."
+
     if group_name == "NotFound":
         content = """
 *Start a User Group*
