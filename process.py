@@ -278,6 +278,8 @@ def process_response(response, dryrun):
     email_body = "Thanks for visiting our kiosk. We're looking forward to\
  working with you. Here are some customised action items!\n\n\t\t"
 
+    # FIXME - if no interests are selected, we still email :)
+
     mls = []
     specs = []
 
